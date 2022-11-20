@@ -1,56 +1,31 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, Button} from 'react-native';
+import {Text, View, Button} from 'react-native';
+import {
+  OrientationLocker,
+  PORTRAIT,
+  LANDSCAPE,
+} from 'react-native-orientation-locker';
 
 const Dashboard = () => {
-  //   const [enteredText, setEnteredText] = useState();
-  const [fName, setFName] = useState('');
-  const [lName, setLName] = useState('');
-
-  const onClick = () => {
-    setFName(fName.charAt(0).toUpperCase() + fName.slice(1));
-    setLName(lName.charAt(0).toUpperCase() + lName.slice(1));
-  };
-
+  const [showVideo, setShowVideo] = useState(true);
   return (
-    <View
-      style={{
-        alignItems: 'center',
-        justifyContent: 'center',
-        flex: 1,
-      }}>
-      <TextInput
-        placeholder="First Name"
-        style={{
-          backgroundColor: 'gray',
-          width: '80%',
-          marginBottom: 8,
-        }}
-        value={fName}
-        onChangeText={txt => {
-          setFName(txt);
-        }}
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <OrientationLocker
+        orientation={LANDSCAPE}
+        onChange={orientation => console.log('onChange', orientation)}
+        onDeviceChange={orientation =>
+          console.log('onDeviceChange', orientation)
+        }
       />
-      <TextInput
-        placeholder="Last Name"
-        style={{
-          backgroundColor: 'gray',
-          width: '80%',
-          marginBottom: 8,
-        }}
-        value={lName}
-        autoCapitalize={'none'}
-        onChangeText={txt => {
-          setLName(txt);
-        }}
-      />
-
-      <Button
-        title="Click"
-        onPress={() => {
-          onClick();
-        }}
-        color="orange"
-      />
+      {/* <Button title="Toggle Video" onPress={() => setShowVideo(!showVideo)} /> */}
+      {showVideo && (
+        <View>
+          {/* <OrientationLocker orientation={LANDSCAPE} /> */}
+          <View style={{width: 320, height: 180, backgroundColor: '#ccc'}}>
+            <Text>Landscape video goes here</Text>
+          </View>
+        </View>
+      )}
     </View>
   );
 };

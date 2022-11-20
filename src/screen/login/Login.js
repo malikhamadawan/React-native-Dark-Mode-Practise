@@ -41,7 +41,7 @@ const Login = ({navigation}) => {
 
         <AppButton
           onPress={() => {
-            navigation.navigate('Dummy');
+            navigation.navigate('Dashboard');
           }}
           title={'Log In'}
           backgroundColor={dark ? 'purple' : 'green'}

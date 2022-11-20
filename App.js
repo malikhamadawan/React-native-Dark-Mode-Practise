@@ -19,15 +19,15 @@ function App() {
     <ThemeProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
-            name="Dashboard"
-            component={Dashboard}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
+        <Stack.Screen
             name="Login"
             component={login}
             options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Dashboard"
+            component={Dashboard}
+            options={{orientation: 'landscape', headerShown: false}}
           />
           <Stack.Screen
             name="Dummy"
