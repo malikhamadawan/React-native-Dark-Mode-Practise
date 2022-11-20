@@ -38,6 +38,7 @@ const Dashboard = () => {
           marginBottom: 8,
         }}
         value={lName}
+        autoCapitalize={'none'}
         onChangeText={txt => {
           setLName(txt);
         }}
